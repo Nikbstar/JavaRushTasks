@@ -1,0 +1,15 @@
+01 - Знакомство с Java: вывод на экран, типы String и int
+    0110 - объявление переменной
+02 - Знакомство с Java: переменные, методы, классы
+03 - Первая программа: ввод с клавиатуры, работа в IDE
+04 - Знакомство с ветвлениями и циклами
+05 - Знакомство с классами: написание своих классов, конструкторы
+06 - Знакомство с объектами: написание своих объектов, время жизни, статические переменные
+07 - Массивы и списки: Array, ArrayList, знакомство с Generics
+08 - Коллекции: LinkedList, HashSet, HashMap. Date - дата.
+    0801 - HashSet fori
+    0805 - HashMap iter
+    0814 - HashSet remove elements with loop while
+    0816 - HashMap remove elements with loop while
+    0817 - HashMap find and remove duplicates with HashSet
+    0823 - Первая буква каждого слова toUpperCase
