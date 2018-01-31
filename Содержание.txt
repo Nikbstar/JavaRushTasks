@@ -13,3 +13,6 @@
     0816 - HashMap remove elements with loop while
     0817 - HashMap find and remove duplicates with HashSet
     0823 - Первая буква каждого слова toUpperCase
+09 - Знакомство с исключениями: try, catch, throws, multy-catch.
+    0901++ - StackTrace
+    0907++ - Exceptions
