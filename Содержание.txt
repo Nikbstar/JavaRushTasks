@@ -35,3 +35,6 @@
 15 - Перегрузка методов, особенность вызова конструкторов
     1511 - Has-a
     1512 - Is-a
+    1522 - pattern Singleton Lazy Initialization
+    1525 - read from file and print on screen (читаем файл в статическом блоке)
+    1527 - url parser
