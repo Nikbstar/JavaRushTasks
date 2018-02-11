@@ -38,3 +38,6 @@
     1522 - pattern Singleton Lazy Initialization
     1525 - read from file and print on screen (читаем файл в статическом блоке)
     1527 - url parser
+    1530 - Template Pattern
+    1531 - Big Factorial
+16 - Знакомство с нитями: Thread, Runnable, start, join, interrupt, sleep
