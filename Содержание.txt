@@ -41,3 +41,7 @@
     1530 - Template Pattern
     1531 - Big Factorial
 16 - Знакомство с нитями: Thread, Runnable, start, join, interrupt, sleep
+    1628 - reading from keyboard in threads
+    1630 - чтение файлов в потоках
+    1631 - Factory method pattern
+    1633 - UncaughtExceptionHandler

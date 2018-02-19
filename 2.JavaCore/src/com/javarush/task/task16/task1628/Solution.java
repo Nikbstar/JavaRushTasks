@@ -42,6 +42,16 @@ public class Solution {
 
         public void run() {
             //add your code here - добавьте код тут
+            try {
+                while (!isInterrupted()){
+                     if (Solution.reader.ready()) {
+                        result.add(Solution.reader.readLine());
+                        Solution.countReadStrings.addAndGet(1);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
