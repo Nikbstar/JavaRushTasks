@@ -45,3 +45,5 @@
     1630 - чтение файлов в потоках
     1631 - Factory method pattern
     1633 - UncaughtExceptionHandler
+17 - Знакомство с нитями: synchronized, volatile, yield
+    1703++ - synchronized
