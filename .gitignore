@@ -1,5 +1,7 @@
 out
 .idea
 *.iml
+aaa.txt
 out.log
+out.log.1
 JavaRushPlugin.properties
