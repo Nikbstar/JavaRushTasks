@@ -47,3 +47,8 @@
     1633 - UncaughtExceptionHandler
 17 - Знакомство с нитями: synchronized, volatile, yield
     1703++ - synchronized
+    1710++ - CrUD person
+    1712 - singletone, queue
+    1713 - implements List<Long>
+    1714 - implements Comparable<Beach>
+    1721 - readLines to ArrayList and remove two file from one file.
