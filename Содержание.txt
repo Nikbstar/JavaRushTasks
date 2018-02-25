@@ -52,3 +52,9 @@
     1713 - implements List<Long>
     1714 - implements Comparable<Beach>
     1721 - readLines to ArrayList and remove two file from one file.
+18 - Знакомство с потоками: InputStream/OutputStream, FileInputStream, FileOutputStream
+    1801++ - FileInputStream
+    1806 - FileInputStream, FileOutputStream with buffer
+    1807 - FileInputStream
+    1808 - FileInputStream, FileOutputStream copy file with buffer
+    1809 - FileInputStream, FileOutputStream reverse copy file with buffer
