@@ -59,3 +59,7 @@
     1808 - FileInputStream, FileOutputStream copy file with buffer
     1809 - FileInputStream, FileOutputStream reverse copy file with buffer
     1811++ - pattern Decorator
+    1816++ - FileInputStream
+    1818++ - FileInputStream, FileOutputStream
+    1820 - FileInputStream, FuleOutputStream, parse from double to int and save into file
+    1821 - FileInputStream, TreeMap
