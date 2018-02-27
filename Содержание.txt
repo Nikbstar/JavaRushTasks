@@ -48,7 +48,7 @@
 17 - Знакомство с нитями: synchronized, volatile, yield
     1703++ - synchronized
     1710++ - CrUD person
-    1712 - singletone, queue
+    1712 - singleton, queue
     1713 - implements List<Long>
     1714 - implements Comparable<Beach>
     1721 - readLines to ArrayList and remove two file from one file.
@@ -61,5 +61,9 @@
     1811++ - pattern Decorator
     1816++ - FileInputStream
     1818++ - FileInputStream, FileOutputStream
-    1820 - FileInputStream, FuleOutputStream, parse from double to int and save into file
+    1820 - FileInputStream, FileOutputStream, parse from double to int and save into file
     1821 - FileInputStream, TreeMap
+    1822 - FileInputStream with BufferedReader
+    1823 - FileInputStream in Threads
+    1825 - FileInputStream, FileOutputStream, TreeMap собираем разделенный файл в один
+    1826 - encode decode file

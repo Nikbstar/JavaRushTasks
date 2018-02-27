@@ -5,3 +5,5 @@ out.log
 out.log.1
 JavaRushPlugin.properties
 *.tmp
+
+*.part*
