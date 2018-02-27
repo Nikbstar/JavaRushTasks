@@ -67,3 +67,4 @@
     1823 - FileInputStream in Threads
     1825 - FileInputStream, FileOutputStream, TreeMap собираем разделенный файл в один
     1826 - encode decode file
+    1827++ - fis, fos, crud
