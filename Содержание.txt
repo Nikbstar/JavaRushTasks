@@ -72,3 +72,5 @@
     1901++ - Adapter Pattern
     1906 - FileReader FileWriter
     1907 - FileReader count words in file
+    1908 - fr fw copy only digits at new file
+    1911++ - change System.out
