@@ -67,4 +67,8 @@
     1823 - FileInputStream in Threads
     1825 - FileInputStream, FileOutputStream, TreeMap собираем разделенный файл в один
     1826 - encode decode file
-    1827++ - fis, fos, crud
+    1827++ - fis, fileOutputStream, crud
+19 - Знакомство с потоками: Reader/Writer, FileReader/FileWriter
+    1901++ - Adapter Pattern
+    1906 - FileReader FileWriter
+    1907 - FileReader count words in file
