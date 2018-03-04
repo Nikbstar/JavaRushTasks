@@ -74,4 +74,8 @@
     1907 - FileReader count words in file
     1908 - fr fw copy only digits at new file
     1911++ - change System.out
+    1916 - changeFile log
+    1917 - My fileWriter
     1919 - fr TreeMap
+    1924 - regex замена чисел (одленьных) на слова
+    1927 - change System.out spam
