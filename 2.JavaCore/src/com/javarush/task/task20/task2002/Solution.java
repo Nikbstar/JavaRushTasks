@@ -19,13 +19,16 @@ public class Solution {
 
             JavaRush javaRush = new JavaRush();
             //initialize users field for the javaRush object here - инициализируйте поле users для объекта javaRush тут
+            System.out.println(javaRush.hashCode());
             User user1 = new User();
             user1.setFirstName("Nikolay");
             user1.setLastName("Kotkin");
             user1.setBirthDate(new Date());
             user1.setMale(true);
             user1.setCountry(User.Country.RUSSIA);
+            System.out.println(javaRush.hashCode());
             User user2 = new User();
+            System.out.println(javaRush.hashCode());
             user2.setFirstName("Ekaterina");
             user2.setMale(false);
             user2.setCountry(User.Country.UKRAINE);
@@ -89,10 +92,11 @@ public class Solution {
                 } else {
                     writer.write("yes");
                     writer.newLine();
-                    writer.write(user.getBirthDate().toString());
+                    writer.write(String.valueOf(user.getBirthDate().getTime()));
                     writer.newLine();
                 }
                 writer.write(String.valueOf(user.isMale()));
+                writer.newLine();
                 if (user.getCountry() == null) {
                     writer.write("no");
                     writer.newLine();
@@ -100,12 +104,48 @@ public class Solution {
                     writer.write("yes");
                     writer.newLine();
                     writer.write(user.getCountry().toString());
+                    writer.newLine();
                 }
             }
+            writer.flush();
         }
 
         public void load(InputStream inputStream) throws Exception {
             //implement this method - реализуйте этот метод
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            int usersLen = Integer.parseInt(reader.readLine());
+            for (int i = 0; i < usersLen; i++) {
+                User user = new User();
+                if ("yes".equals(reader.readLine())) {
+                    user.setFirstName(reader.readLine());
+                } else {
+                    user.setFirstName(null);
+                }
+                if ("yes".equals(reader.readLine())) {
+                    user.setLastName(reader.readLine());
+                } else {
+                    user.setLastName(null);
+                }
+                if ("yes".equals(reader.readLine())) {
+                    user.setBirthDate(new Date(Long.parseLong(reader.readLine())));
+                } else {
+                    user.setBirthDate(null);
+                }
+                user.setMale(Boolean.parseBoolean(reader.readLine()));
+                if ("yes".equals(reader.readLine())) {
+                    String country = reader.readLine();
+                    if (country.equals("RUSSIA")) {
+                        user.setCountry(User.Country.RUSSIA);
+                    } else if (country.equals("UKRAINE")) {
+                        user.setCountry(User.Country.UKRAINE);
+                    } else if (country.equals("OTHER")) {
+                        user.setCountry(User.Country.OTHER);
+                    }
+                } else {
+                    user.setCountry(null);
+                }
+                this.users.add(user);
+            }
         }
 
         @Override
