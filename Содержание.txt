@@ -80,3 +80,5 @@
     1919 - fr TreeMap
     1924 - regex замена чисел (одленьных) на слова
     1927 - change System.out spam
+20 - Сериализация
+    2001 - Tmp file, save object into tmp file, load object from tmp file
