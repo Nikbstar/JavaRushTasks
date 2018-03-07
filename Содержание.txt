@@ -84,3 +84,6 @@
     2001++ - Tmp file, save object into tmp file, load object from tmp file
     2003 - .properties
     2004 - tmp file, save object with static fields
+    2005++ - serialization
+    2006 - singleton serialization
+    2011++ - external serialization
