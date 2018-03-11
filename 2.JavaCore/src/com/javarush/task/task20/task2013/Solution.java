@@ -48,10 +48,10 @@ public class Solution {
 
         @Override
         public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+            this.setMother((Person)in.readObject());
+            this.setFather((Person)in.readObject());
             firstName = (String) in.readObject();
             lastName = (String) in.readObject();
-            this.setFather((Person)in.readObject());
-            this.setMother((Person)in.readObject());
             age = in.readInt();
             this.setChildren((List) in.readObject());
         }

@@ -87,3 +87,5 @@
     2005++ - serialization
     2006 - singleton serialization
     2011++ - external serialization
+    2015 - thread serializable and start transient writeObject readObject
+    2018 - writeObject readObject serializable exception
