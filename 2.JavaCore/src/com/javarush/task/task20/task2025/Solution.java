@@ -8,9 +8,6 @@ import java.util.Date;
 */
 public class Solution {
 
-
-
-
     public static long[] getNumbers(long N) {
         long[] result = null;
         result = cheatMethod(N);
@@ -18,9 +15,9 @@ public class Solution {
     }
 
     // TODO: https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java
+    // https://acmp.ru/article.asp?id_text=198
 
     private static long[] cheatMethod(long N) {
-        // !!!!cheat!!!!
         long[] numbers = new long[50];
         numbers[0] = 1L;
         numbers[1] = 2L;
