@@ -8,14 +8,90 @@ import java.util.Date;
 */
 public class Solution {
 
+    public static final long NUMBER = 999999999;
+
     public static long[] getNumbers(long N) {
         long[] result = null;
-        result = cheatMethod(N);
+        //result = cheatMethod(N); // 9:60
+        //result = badMethod(N); // 9:637324
+        result = acmpru(N);
         return result;
     }
 
     // TODO: https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java
-    // https://acmp.ru/article.asp?id_text=198
+
+
+    // TODO: https://acmp.ru/article.asp?id_text=198
+    private static long[] acmpru(long N) {
+        long[] temp = new long[50];
+        byte i = 0;
+        for (long iterator = 1; iterator < N; iterator = numGenerator(iterator)) {
+            if (isArmstrongNumber(numPow(iterator))) {
+                temp[i++] = iterator;
+            }
+        }
+        long[] result = Arrays.copyOf(temp, i);
+        Arrays.sort(result);
+        return result;
+    }
+    private static long numGenerator (long lastNum) {
+
+        long result = lastNum + 1;
+
+        while (true) {
+            if (isTrueNumber(result)) {
+                break;
+            }
+            result++;
+        }
+        return result;
+    }
+    private static boolean isTrueNumber(long num) {
+        boolean result = true;
+        String numToString = String.valueOf(num);
+        for (int i = 1; i < numToString.length(); i++) {
+            if (i == numToString.length() - 1) {
+                if (numToString.charAt(i) < numToString.charAt(i - 1)) {
+                    result = false;
+                    break;
+                }
+            } else {
+                if (numToString.charAt(i) < numToString.charAt(i - 1) || numToString.charAt(i) > numToString.charAt(i + 1)) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+    private static long numPow (long num) {
+        byte digitsCount = (byte) String.valueOf(num).length();
+        long tmp = num;
+        long sum = 0;
+        byte a;
+        while (tmp > 0) {
+            a = (byte) (tmp % 10);
+            tmp = tmp / 10;
+            sum += Math.pow(a, digitsCount);
+        }
+        return sum;
+    }
+    private static boolean isArmstrongNumber (long num) {
+        boolean result = false;
+        byte digitsCount = (byte) String.valueOf(num).length();
+        long tmp = num;
+        long sum = 0;
+        byte a;
+        while (tmp > 0) {
+            a = (byte) (tmp % 10);
+            tmp = tmp / 10;
+            sum += Math.pow(a, digitsCount);
+        }
+        if (sum == num) {
+            result = true;
+        }
+        return result;
+    }
 
     private static long[] cheatMethod(long N) {
         long[] numbers = new long[50];
@@ -80,9 +156,26 @@ public class Solution {
         return Arrays.copyOf(tmp, i);
     }
 
+    private static long[] badMethod(long N) {
+        long[] temp = new long[50];
+        int i = 0;
+        for (long n = 1; n < N; n++) {
+            String str = String.valueOf(n);
+            int pow = str.length();
+            long tmp = 0;
+            for (int iterator = 0; iterator < pow; iterator++) {
+                tmp += (int) Math.pow(Double.parseDouble(String.valueOf(str.charAt(iterator))), pow);
+            }
+            if (tmp == n) {
+                temp[i++] = n;
+            }
+        }
+        return Arrays.copyOf(temp, i);
+    }
+
     public static void main(String[] args) {
         Date start = new Date();
-        long[] res = getNumbers(1);
+        long[] res = getNumbers(NUMBER);
         for (long l : res) {
             System.out.println("arr: " + l);
         }
