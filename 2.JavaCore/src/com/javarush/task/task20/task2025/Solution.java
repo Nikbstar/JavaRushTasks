@@ -1,98 +1,113 @@
 package com.javarush.task.task20.task2025;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 
 /*
 Алгоритмы-числа
 */
 public class Solution {
 
-    public static final long NUMBER = 999999999;
+    public static final long NUMBER = Long.MAX_VALUE;
+    private static long[][] pows;
 
     public static long[] getNumbers(long N) {
         long[] result = null;
         //result = cheatMethod(N); // 9:60
         //result = badMethod(N); // 9:637324
-        result = acmpru(N);
+        //result = acmpru(N); // 9:129
+        result = armstrongNumbersMultiSetLongOpt(N); // 9:68
         return result;
     }
 
-    // TODO: https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java
+    // https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java
+    private static long[] armstrongNumbersMultiSetLongOpt(long N) {
+        int pow = String.valueOf(N).length();
+        List<Long> temp = ArmstrongNumbersMultiSetLongOpt.generate(pow);
+        long[] result = new long[temp.size()];
+        byte resultIterator = 0;
+        for (Long aLong : temp) {
+            result[resultIterator++] = aLong;
+        }
+        return result;
+    }
 
-
-    // TODO: https://acmp.ru/article.asp?id_text=198
+    // My variant with help: https://acmp.ru/article.asp?id_text=198
     private static long[] acmpru(long N) {
-        long[] temp = new long[50];
-        byte i = 0;
+        pows = new long[10][String.valueOf(N).length() + 1];
+        for (int i = 0; i < pows.length; i++) {
+            for (int j = 0; j < pows[i].length; j++) {
+                if (i == 0) {
+                    pows[i][j] = 0;
+                } else {
+                    pows[i][j] = power(i, j);
+                }
+            }
+        }
+        Set<Long> temp = new TreeSet<>();
+        long pwSum;
         for (long iterator = 1; iterator < N; iterator = numGenerator(iterator)) {
-            if (isArmstrongNumber(numPow(iterator))) {
-                temp[i++] = iterator;
-            }
-        }
-        long[] result = Arrays.copyOf(temp, i);
-        Arrays.sort(result);
-        return result;
-    }
-    private static long numGenerator (long lastNum) {
-
-        long result = lastNum + 1;
-
-        while (true) {
-            if (isTrueNumber(result)) {
-                break;
-            }
-            result++;
-        }
-        return result;
-    }
-    private static boolean isTrueNumber(long num) {
-        boolean result = true;
-        String numToString = String.valueOf(num);
-        for (int i = 1; i < numToString.length(); i++) {
-            if (i == numToString.length() - 1) {
-                if (numToString.charAt(i) < numToString.charAt(i - 1)) {
-                    result = false;
-                    break;
+            long tmp = iterator;
+            while (tmp > 0 && tmp < N ) {
+                pwSum = powSum(tmp);
+                if (pwSum > 0 && pwSum < N && isArmstrongNumber(pwSum)) {
+                    temp.add(pwSum);
                 }
-            } else {
-                if (numToString.charAt(i) < numToString.charAt(i - 1) || numToString.charAt(i) > numToString.charAt(i + 1)) {
-                    result = false;
-                    break;
-                }
+                tmp *= 10;
             }
+        }
+        long[] result = new long[temp.size()];
+        byte resultIterator = 0;
+        for (Long aLong : temp) {
+            result[resultIterator++] = aLong;
         }
         return result;
     }
-    private static long numPow (long num) {
-        byte digitsCount = (byte) String.valueOf(num).length();
-        long tmp = num;
-        long sum = 0;
-        byte a;
-        while (tmp > 0) {
-            a = (byte) (tmp % 10);
-            tmp = tmp / 10;
-            sum += Math.pow(a, digitsCount);
+    private static long power(int num, int pow) {
+        long result = 1;
+        for (int i = 0; i < pow; i++) {
+            result *= num;
         }
-        return sum;
+        return result;
     }
-    private static boolean isArmstrongNumber (long num) {
+    private static boolean isArmstrongNumber(long num) {
         boolean result = false;
-        byte digitsCount = (byte) String.valueOf(num).length();
-        long tmp = num;
-        long sum = 0;
-        byte a;
-        while (tmp > 0) {
-            a = (byte) (tmp % 10);
-            tmp = tmp / 10;
-            sum += Math.pow(a, digitsCount);
-        }
-        if (sum == num) {
+        if (num != 0 && num == powSum(num)) {
             result = true;
         }
         return result;
     }
+    private static long powSum(long num) {
+        int pow = String.valueOf(num).length();
+        long tmp = num;
+        long sum = 0;
+        for (int i = 0; i < pow; i++) {
+            sum += pows[(int) (tmp % 10)][pow];
+            tmp /= 10;
+        }
+        return sum;
+    }
+    private static long numGenerator(long num) {
+        num++;
+        int iterator = 0;
+        char[] str = String.valueOf(num).toCharArray();
+        long result;
+        if (str.length > 1) {
+            while (iterator < str.length - 1) {
+                if (str[iterator + 1] < str[iterator]) {
+                    str[iterator + 1] = str[iterator];
+                }
+                iterator++;
+            }
+        }
+        try {
+            result = Long.parseLong(String.valueOf(str));
+        } catch (NumberFormatException nfe) {
+            result = Long.MAX_VALUE;
+        }
+        return result;
+    }
 
+    // For tests
     private static long[] cheatMethod(long N) {
         long[] numbers = new long[50];
         numbers[0] = 1L;
@@ -156,6 +171,7 @@ public class Solution {
         return Arrays.copyOf(tmp, i);
     }
 
+    // v lob (very slooooow)
     private static long[] badMethod(long N) {
         long[] temp = new long[50];
         int i = 0;
