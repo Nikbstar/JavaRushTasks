@@ -90,3 +90,5 @@
     2015 - thread serializable and start transient writeObject readObject
     2018 - writeObject readObject serializable exception
     2022 - stream serialization writeObject readObject
+    2025 - оптимизация алгоритма числа Армстронга
+    2026 - алгоритм поиска прямоугольников в матрице
