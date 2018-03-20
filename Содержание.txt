@@ -92,3 +92,7 @@
     2022 - stream serialization writeObject readObject
     2025 - оптимизация алгоритма числа Армстронга
     2026 - алгоритм поиска прямоугольников в матрице
+    2027 - поиск слов в матрице
+21 - Устройство объекта Object: equals, hashCode, clone, wait, notify, toString()
+    2101 - Определяем адрес сети Byte to bin
+    2102 - Сравниваем модификаторы. Modifiers
