@@ -96,3 +96,7 @@
 21 - Устройство объекта Object: equals, hashCode, clone, wait, notify, toString()
     2101 - Определяем адрес сети Byte to bin
     2102 - Сравниваем модификаторы. Modifiers
+    2104++ - equals and hashCode
+    2107++ - clone, equals, hashCode
+    2110 - try-with-resources копирует имена файлов из zip архива
+    2111 - try-with-resources sql
