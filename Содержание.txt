@@ -100,3 +100,12 @@
     2107++ - clone, equals, hashCode
     2110 - try-with-resources копирует имена файлов из zip архива
     2111 - try-with-resources sql
+22 - String: mutable, immutable, format, StringTokenizer, StringBuilder, StringBuffer
+23 - Внутренние классы, примеры: Map.Entry
+24 - Внутренние классы, особенности реализации
+25 - Создание и остановка нитей: start, interrupt, sleep, yield.
+26 - Совместный доступ к монопольным данным: synchronized, volatile
+27 - DeadLock. Wait, notify, notifyAll
+28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
+29 - Autoboxing, особенности реализации
+30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
