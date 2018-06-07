@@ -1,6 +1,6 @@
 package com.javarush.task.task22.task2204;
 
-/*
+/* 
 Форматирование строки
 */
 public class Solution {
@@ -12,6 +12,6 @@ public class Solution {
     }
 
     public static String getFormattedString() {
-        return "20 / 7 = %.2f %nExp = %.2                                                                                                                                                       ie";
+        return "20 / 7 = %.2f%nExp = %.2e";
     }
 }

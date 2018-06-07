@@ -102,6 +102,7 @@
     2111 - try-with-resources sql
 22 - String: mutable, immutable, format, StringTokenizer, StringBuilder, StringBuffer
     2201 - exception log
+    2204++ - String.format
 23 - Внутренние классы, примеры: Map.Entry
 24 - Внутренние классы, особенности реализации
 25 - Создание и остановка нитей: start, interrupt, sleep, yield.
