@@ -104,6 +104,9 @@
     2201 - exception log
     2204++ - String.format
     2207++ StringBuilder
+    2210 - StringTokenizer
+    2211 - Смена кодировки
+    2212 - regex phone number
 23 - Внутренние классы, примеры: Map.Entry
 24 - Внутренние классы, особенности реализации
 25 - Создание и остановка нитей: start, interrupt, sleep, yield.
