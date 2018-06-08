@@ -96,33 +96,39 @@ public class Room {
      * Выводим на экран текущее состояние игры
      */
     public void print() {
-        //Создаем массив, куда будем "рисовать" текущее состояние игры
-        int[][] matrix = new int[height][width];
-
-        //Рисуем все кусочки змеи
-        ArrayList<SnakeSection> sections = new ArrayList<SnakeSection>(snake.getSections());
-        for (SnakeSection snakeSection : sections) {
-            matrix[snakeSection.getY()][snakeSection.getX()] = 1;
+        if (KeyboardObserver.frame != null) {
+            KeyboardObserver.frame.setContentPane(new Layer());
+            KeyboardObserver.frame.setVisible(true);
         }
-
-        //Рисуем голову змеи (4 - если змея мертвая)
-        matrix[snake.getY()][snake.getX()] = snake.isAlive() ? 2 : 4;
-
-        //Рисуем мышь
-        matrix[mouse.getY()][mouse.getX()] = 3;
-
-        //Выводим все это на экран
-        String[] symbols = {" . ", " x ", " X ", "^_^", "RIP"};
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                System.out.print(symbols[matrix[y][x]]);
-            }
-            System.out.println();
-        }
-        System.out.println();
-        System.out.println();
-        System.out.println();
     }
+//    public void print() {
+//        //Создаем массив, куда будем "рисовать" текущее состояние игры
+//        int[][] matrix = new int[height][width];
+//
+//        //Рисуем все кусочки змеи
+//        ArrayList<SnakeSection> sections = new ArrayList<SnakeSection>(snake.getSections());
+//        for (SnakeSection snakeSection : sections) {
+//            matrix[snakeSection.getY()][snakeSection.getX()] = 1;
+//        }
+//
+//        //Рисуем голову змеи (4 - если змея мертвая)
+//        matrix[snake.getY()][snake.getX()] = snake.isAlive() ? 2 : 4;
+//
+//        //Рисуем мышь
+//        matrix[mouse.getY()][mouse.getX()] = 3;
+//
+//        //Выводим все это на экран
+//        String[] symbols = {" . ", " x ", " X ", "^_^", "RIP"};
+//        for (int y = 0; y < height; y++) {
+//            for (int x = 0; x < width; x++) {
+//                System.out.print(symbols[matrix[y][x]]);
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//    }
 
     /**
      * Метод вызывается, когда мышь съели
