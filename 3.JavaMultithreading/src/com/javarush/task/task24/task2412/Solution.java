@@ -45,16 +45,31 @@ public class Solution {
             public int compare(Stock stock1, Stock stock2) {
                 int result = ((String) stock1.get("name")).compareTo((String) stock2.get("name"));
                 if (result == 0) {
-                    // TODO: по дате без учета часов, минут, секунд (сверху самые новые)
-                    result = ((Date) stock1.get("date")).compareTo((Date) stock2.get("date"));
-                } if (result == 0) {
-                    result = Double.compare (((double) stock1.get("last") - (double) stock1.get("open")),
-                            ((double) stock2.get("last") - (double) stock2.get("open")));
-                }
+                    result = removeTime((Date) stock1.get("date")).compareTo(removeTime((Date) stock2.get("date")));
+                    if (result == 0) {
+                        double changeStock1 = stock1.containsKey("open")
+                                ? ((double) stock1.get("last") - (double) stock1.get("open"))
+                                : (double) stock1.get("change");
+                        double changeStock2 = stock2.containsKey("open")
+                                ? ((double) stock2.get("last") - (double) stock2.get("open"))
+                                : (double) stock2.get("change");
 
+                        result = Double.compare(changeStock2, changeStock1);
+                    }
+                }
                 return result;
             }
         });
+    }
+
+    private static Date removeTime(Date date) {
+        Calendar result = new GregorianCalendar();
+        result.setTime(date);
+        result.set(Calendar.HOUR, 0);
+        result.set(Calendar.MINUTE, 0);
+        result.set(Calendar.SECOND, 0);
+        result.set(Calendar.MILLISECOND, 0);
+        return result.getTime();
     }
 
     public static class Stock extends HashMap {

@@ -22,7 +22,7 @@ public class Ball extends BaseObject {
         this.direction = direction;
         this.speed = speed;
 
-        this.isFrozen = false;
+        this.isFrozen = true;
     }
 
     public double getSpeed() {
