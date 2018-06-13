@@ -118,6 +118,7 @@
     2407++ - локальные классы
     2410++ - анонимные иннер классы
     2412 - java.text.MessageFormat
+    3608 - паттерн MVC - Model-View-Controller (большой проект)
 25 - Создание и остановка нитей: start, interrupt, sleep, yield.
 26 - Совместный доступ к монопольным данным: synchronized, volatile
 27 - DeadLock. Wait, notify, notifyAll
