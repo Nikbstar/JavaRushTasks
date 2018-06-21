@@ -120,6 +120,7 @@
     2412 - java.text.MessageFormat
     3608 - паттерн MVC - Model-View-Controller (большой проект)
 25 - Создание и остановка нитей: start, interrupt, sleep, yield.
+    2501++ - enum
 26 - Совместный доступ к монопольным данным: synchronized, volatile
 27 - DeadLock. Wait, notify, notifyAll
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
