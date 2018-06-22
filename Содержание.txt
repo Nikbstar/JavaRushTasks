@@ -121,6 +121,10 @@
     3608 - паттерн MVC - Model-View-Controller (большой проект)
 25 - Создание и остановка нитей: start, interrupt, sleep, yield.
     2501++ - enum
+    2504++ - threads states
+    2505 - UncaughtExceptionHandler перехват исключений в потоке
+    2506 - Threads states logger
+    2507++ - прирывание нитей Interrupt
 26 - Совместный доступ к монопольным данным: synchronized, volatile
 27 - DeadLock. Wait, notify, notifyAll
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
