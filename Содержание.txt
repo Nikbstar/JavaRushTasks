@@ -125,6 +125,11 @@
     2505 - UncaughtExceptionHandler перехват исключений в потоке
     2506 - Threads states logger
     2507++ - прирывание нитей Interrupt
+    2509 - Socket, ThreadPoolExecutor, RunnableFuture, Callable
+    2510++ - UncaughtExceptionHandler
+    2512 - +ExceptionsLog
+    2513++ - yield
+    2909 - Рефакторинг (большой проект)
 26 - Совместный доступ к монопольным данным: synchronized, volatile
 27 - DeadLock. Wait, notify, notifyAll
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
