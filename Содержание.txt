@@ -132,6 +132,8 @@
     2909 - Рефакторинг (большой проект)
 26 - Совместный доступ к монопольным данным: synchronized, volatile
     2601++ - Comparable, Comparator
+    2603 - comparator сравнение по нескольким компараторам
+    2604++ - volatile
 27 - DeadLock. Wait, notify, notifyAll
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
 29 - Autoboxing, особенности реализации
