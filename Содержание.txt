@@ -136,6 +136,7 @@
     2604++ - volatile
     2607++ - synchronized
     2610++ - concurrent
+    3008 - Чат (большой проект)
 27 - DeadLock. Wait, notify, notifyAll
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
 29 - Autoboxing, особенности реализации
