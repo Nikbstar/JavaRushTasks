@@ -138,6 +138,8 @@
     2610++ - concurrent
     3008 - Чат (большой проект)
 27 - DeadLock. Wait, notify, notifyAll
+    2701++ - labels (метки)
+    2703++ - deadlock
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
 29 - Autoboxing, особенности реализации
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
