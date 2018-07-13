@@ -140,6 +140,8 @@
 27 - DeadLock. Wait, notify, notifyAll
     2701++ - labels (метки)
     2703++ - deadlock
+    2709++ - wait, notify, notifyAll
+    2711 - CountDownLatch
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
 29 - Autoboxing, особенности реализации
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing

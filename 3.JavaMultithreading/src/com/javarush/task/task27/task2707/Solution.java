@@ -1,8 +1,5 @@
 package com.javarush.task.task27.task2707;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 /*
 Определяем порядок захвата монитора
 */
@@ -17,18 +14,30 @@ public class Solution {
 
     public static boolean isNormalLockOrder(final Solution solution, final Object o1, final Object o2) throws Exception {
         //do something here
-        PrintStream console = System.out;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream myps = new PrintStream(baos);
-        System.setOut(myps);
-        solution.someMethodWithSynchronizedBlocks(o2, o1);
-        System.out.flush();
-        System.setOut(console);
-        String actualString = baos.toString();
-        String expectedString = o1.toString() + " " + o2.toString() + System.lineSeparator();
-        System.out.println(actualString);
-        System.out.println(expectedString);
-        return actualString.equals(expectedString);
+        final boolean[] result = {false};
+        synchronized (o1) {
+            Thread t1 = new Thread(() -> solution.someMethodWithSynchronizedBlocks(o1, o2));
+            t1.setDaemon(true);
+            t1.start();
+            while (true) {
+                if (t1.getState() == Thread.State.BLOCKED) {
+                    break;
+                }
+            }
+            Thread t2 = new Thread(() -> {
+                synchronized (o2) {
+                    result[0] = true;
+                }
+            });
+            t2.setDaemon(true);
+            t2.start();
+            while (true) {
+                if (t2.getState() == Thread.State.BLOCKED  || result[0] == true) {
+                    break;
+                }
+            }
+        }
+        return result[0];
     }
 
     public static void main(String[] args) throws Exception {
