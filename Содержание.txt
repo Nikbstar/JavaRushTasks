@@ -144,5 +144,8 @@
     2711 - CountDownLatch
     3110 - Архиватор (больщой проект)
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
+    2801 - switch
+    2802 - ThreadFactory
+    2803 - ThreadLocalRandom
 29 - Autoboxing, особенности реализации
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
