@@ -142,6 +142,7 @@
     2703++ - deadlock
     2709++ - wait, notify, notifyAll
     2711 - CountDownLatch
+    3110 - Архиватор (больщой проект)
 28 - ThreadGroup, ThreadLocal, Executor, ExecutorService, Callable. Опыт работы с Jsoup
 29 - Autoboxing, особенности реализации
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
