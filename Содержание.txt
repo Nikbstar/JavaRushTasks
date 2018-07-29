@@ -147,5 +147,14 @@
     2801 - switch
     2802 - ThreadFactory
     2803 - ThreadLocalRandom
+    2804++ - приоритеты
+    2806 - ExecutorService
+    2807 - ThreadPoolExecutor
+    2812 - ThreadPool ShutDownNow
+    2808++ - Callable
+    2809 - Phaser
+    2813 - Callable
+    2811 - ReentrantReadWriteLock
+    3209 - HTML editor
 29 - Autoboxing, особенности реализации
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
