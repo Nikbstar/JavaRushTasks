@@ -157,4 +157,8 @@
     2811 - ReentrantReadWriteLock
     3209 - HTML editor
 29 - Autoboxing, особенности реализации
+    2900++ - рефакторинг
+    2908 - caching - кеширование
+    2910 - биатлон
+    2912 - Chain of Responsibility pattern
 30 - Операторы: числовые, логические и бинарные. Опыт работы с Swing
