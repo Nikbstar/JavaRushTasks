@@ -24,7 +24,7 @@ public class Advertisement {
         this.hits = hits;
         this.duration = duration;
 
-        this.amountPerOneDisplaying = initialAmount / hits;
+        this.amountPerOneDisplaying = (hits == 0) ? 0 : initialAmount / hits;
     }
 
     public String getName() {
@@ -37,5 +37,9 @@ public class Advertisement {
 
     public long getAmountPerOneDisplaying() {
         return amountPerOneDisplaying;
+    }
+
+    public int getHits() {
+        return hits;
     }
 }
