@@ -25,6 +25,14 @@ public class Order {
         return dishes.size() == 0;
     }
 
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public String getTabletName() {
+        return this.tablet.toString();
+    }
+
     @Override
     public String toString() {
         return (dishes.size() > 0) ? String.format("Your order: %s of %s", dishes, tablet.toString()) : "";

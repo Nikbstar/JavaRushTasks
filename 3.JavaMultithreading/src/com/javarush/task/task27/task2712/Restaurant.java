@@ -8,10 +8,16 @@ public class Restaurant {
 
     public static void main(String[] args) {
         Tablet tablet = new Tablet(3);
+        DirectorTablet directorTablet = new DirectorTablet();
         Cook cook = new Cook("Amigo");
         cook.addObserver(new Waiter());
         tablet.addObserver(cook);
         tablet.createOrder();
+        System.out.println("============================");
+        directorTablet.printAdvertisementProfit();
+        directorTablet.printCookWorkloading();
+        directorTablet.printActiveVideoSet();
+        directorTablet.printArchivedVideoSet();
     }
 
 }

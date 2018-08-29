@@ -1,6 +1,9 @@
 package com.javarush.task.task27.task2712.ad;
 
 import com.javarush.task.task27.task2712.ConsoleHelper;
+import com.javarush.task.task27.task2712.statistic.StatisticManager;
+import com.javarush.task.task27.task2712.statistic.event.NoAvailableVideoEventDataRow;
+import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
 import java.util.*;
 
@@ -53,6 +56,7 @@ public class AdvertisementManager {
 
     public void processVideos() {
         if (storage.list().isEmpty()) {
+            StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(timeSeconds));
             throw new NoVideoAvailableException();
         }
         List<Advertisement> listWithHits = new LinkedList<>();
@@ -61,6 +65,7 @@ public class AdvertisementManager {
         }
         findBestSet(listWithHits, new LinkedList<>(), 0, 0);
         if (bestSet.isEmpty()) {
+            StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(timeSeconds));
             throw new NoVideoAvailableException();
         }
         Collections.sort(bestSet, (Comparator<Object>) (o1, o2) -> {
@@ -74,6 +79,7 @@ public class AdvertisementManager {
                 return Float.compare(secCoast1, secCoast2);
             } else return Long.compare(amount2, amount1);
         });
+        StatisticManager.getInstance().register(new VideoSelectedEventDataRow(bestSet, bestCost, timeOfBestSet));
         for (Advertisement ad : bestSet) {
             ad.revalidate();
             ConsoleHelper.writeMessage(String.format("%s is displaying... %d, %d", ad.getName(), ad.getAmountPerOneDisplaying(), ad.getAmountPerOneDisplaying() * 1000 / ad.getDuration()));
