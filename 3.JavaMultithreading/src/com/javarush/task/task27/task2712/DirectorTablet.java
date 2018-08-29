@@ -26,7 +26,20 @@ public class DirectorTablet {
         ConsoleHelper.writeMessage(String.format("Total - %.2f", totalSum));
     }
 
-    public void printCookWorkloading() {}
+    public void printCookWorkloading() {
+        Map<Integer, Map<String, Integer>> sorted = new TreeMap<>(Collections.reverseOrder());
+        sorted.putAll(StatisticManager.getInstance().cookWorkloading());
+        for (Integer integer : sorted.keySet()) {
+            Date resultDate = new Date();
+            resultDate.setDate(integer);
+            String dateFormat = new SimpleDateFormat("dd-MMM-yyyy").format(resultDate);
+            ConsoleHelper.writeMessage(dateFormat);
+            for (Map.Entry<String, Integer> entry : sorted.get(integer).entrySet()) {
+                ConsoleHelper.writeMessage(String.format("%s - %d min", entry.getKey(), entry.getValue()));
+            }
+            ConsoleHelper.writeMessage("");
+        }
+    }
 
     public void printActiveVideoSet() {}
 

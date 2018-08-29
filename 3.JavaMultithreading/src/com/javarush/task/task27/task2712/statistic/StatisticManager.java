@@ -1,6 +1,7 @@
 package com.javarush.task.task27.task2712.statistic;
 
 import com.javarush.task.task27.task2712.kitchen.Cook;
+import com.javarush.task.task27.task2712.statistic.event.CookedOrderEventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.EventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.EventType;
 import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
@@ -39,6 +40,28 @@ public class StatisticManager {
         }
         dateSum.put(-1, totalSum);
         return dateSum;
+    }
+
+    public Map<Integer, Map<String, Integer>> cookWorkloading() {
+        List<EventDataRow> eventDataRows = statisticStorage.getStorage().get(EventType.COOKED_ORDER);
+        Map<Integer, Map<String, Integer>> dateCookTime = new HashMap<>();
+        for (EventDataRow dataRow : eventDataRows) {
+            int date = dataRow.getDate().getDate();
+            int time = dataRow.getTime();
+            String cookName = ((CookedOrderEventDataRow)dataRow).getCookName();
+            if (dateCookTime.containsKey(date)) {
+                if (dateCookTime.get(date).containsKey(cookName)) {
+                    dateCookTime.get(date).put(cookName, dateCookTime.get(date).get(cookName) + time);
+                } else {
+                    dateCookTime.get(date).put(cookName, time);
+                }
+            } else {
+                Map<String, Integer> cooks = new TreeMap<>();
+                cooks.put(cookName, time);
+                dateCookTime.put(date, cooks);
+            }
+        }
+        return dateCookTime;
     }
 
     private StatisticManager() {}
