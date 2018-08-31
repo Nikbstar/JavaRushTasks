@@ -2,6 +2,7 @@ package com.javarush.task.task27.task2712;
 
 import com.javarush.task.task27.task2712.ad.AdvertisementManager;
 import com.javarush.task.task27.task2712.ad.NoVideoAvailableException;
+import com.javarush.task.task27.task2712.kitchen.Dish;
 import com.javarush.task.task27.task2712.kitchen.Order;
 
 import java.io.IOException;
@@ -34,6 +35,20 @@ public class Tablet extends Observable {
             logger.severe("Console is unavailable.");
         }
         return order;
+    }
+
+    public void createTestOrder() {
+        Order order;
+        try {
+            order = new Order(this);
+            int randomOrdersCount = (int)((Math.random() * 9) + 1);
+            for (int i = 0; i < randomOrdersCount; i++) {
+                Dish[] dishes = Dish.values();
+                int randomDish = (int) (Math.random() * (dishes.length - 1));
+                order.getDishes().add(dishes[randomDish]);
+            }
+        } catch (IOException e) {
+        }
     }
 
     @Override
